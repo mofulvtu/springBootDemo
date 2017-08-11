@@ -1,5 +1,6 @@
 package com.lzg.springBootDemo;
 
+import com.lzg.springBootDemo.controller.HelloWorldController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,4 +14,9 @@ public class SpringBootDemoApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void testSayHello() {
+		org.junit.Assert.assertEquals("Hello World",new HelloWorldController().hello());
+		System.out.println("...");
+	}
 }
