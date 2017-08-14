@@ -1,0 +1,6 @@
+## employ属性 random.uuid 每次自动生成不同的32位16进制数
+employ:
+  name: 哈登
+  age: 26
+  desc: 我是${employ.name}。今年${employ.age}岁。
+  uuid: ${random.uuid}
