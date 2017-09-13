@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzg.springBootDemo.dao.master.UserDao" >
+    <resultMap id="BaseResultMap" type="com.lzg.springBootDemo.domain.User" >
+        <id column="id" property="id"  />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, user_name, description
+    </sql>
+
+    <!--获取用户列表-->
+    <select id="findAllUser" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from `user`
+    </select>
+
+     <!--根据id获取用户信息-->
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from `user`
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <!--根据name获取用户信息-->
+    <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from `user`
+        where user_name = #{userName,jdbcType=VARCHAR}
+    </select>
+
+
+
+    <!-- 插入城市信息-->
+    <insert id="saveUser" parameterType="com.lzg.springBootDemo.domain.User" >
+        insert into `user` (id, user_name,
+        description)
+        values (#{id,jdbcType=INTEGER},  #{userName,jdbcType=VARCHAR},
+        #{description,jdbcType=VARCHAR})
+    </insert>
+
+
+
+    <!-- 更新城市信息-->
+    <update id="updateUser" parameterType="com.lzg.springBootDemo.domain.User" >
+        update `user`
+        <set >
+            <if test="userName != null" >
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null" >
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+
+    <!-- 根据id删除对应城市信息-->
+    <delete id="deleteUserById" parameterType="java.lang.Integer" >
+        delete from `user`
+        where id = #{id}
+    </delete>
+
+
+    <insert id="insertSelective" parameterType="com.lzg.springBootDemo.domain.User" >
+        insert into `user`
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="userName != null" >
+                user_name,
+            </if>
+            <if test="description != null" >
+                description,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="userName != null" >
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null" >
+                #{description,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+</mapper>

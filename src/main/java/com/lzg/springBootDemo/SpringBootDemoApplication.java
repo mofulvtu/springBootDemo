@@ -1,6 +1,5 @@
 package com.lzg.springBootDemo;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
@@ -11,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //Spring Boot应用的标识
 @SpringBootApplication
 //mapper接口类扫描包配置
-@MapperScan("com.lzg.springBootDemo.dao")
+//@MapperScan("com.lzg.springBootDemo.dao")
 public class SpringBootDemoApplication {
 
 	public static void main(String[] args) {

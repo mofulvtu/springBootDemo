@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Access Token拦截器
- * Created by 刘增刚 on 2017/8/25
+ * Created by Liuzg on 2017/8/25
  */
 
 @Component

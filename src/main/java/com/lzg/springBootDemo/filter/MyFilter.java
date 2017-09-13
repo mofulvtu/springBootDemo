@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * Created by 刘增刚 on 2017/8/11
+ * Created by liuzg on 2017/8/11
  */
 public class MyFilter implements Filter {
     @Override

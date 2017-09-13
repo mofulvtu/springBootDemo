@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * MVC 设置
  * 第一步：将拦截器配置成Bean
  * 第二步：拦截器注册注入该拦截器，并配置拦截的URL
- * Created by 刘增刚 on 2017/8/25
+ * Created by Liuzg on 2017/8/25
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter{

@@ -2,7 +2,7 @@ package com.lzg.springBootDemo.domain;
 
 /**
  * 城市实体类
- * Created by 刘增刚 on 2017/8/15
+ * Created by liuzg on 2017/8/15
  */
 public class City {
 
