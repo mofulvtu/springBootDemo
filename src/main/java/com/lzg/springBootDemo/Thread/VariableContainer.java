@@ -1,38 +1,16 @@
-package com.lzg.springBootDemo.filter;
-
-
-import com.lzg.springBootDemo.Thread.VariableContainer;
-
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
+package com.lzg.springBootDemo.Thread;
 
 /**
- * Created by liuzg on 2017/8/11
+ * Desc:
+ *
+ * @author liuzg
+ * @date 2017/10/23
  */
-public class MyFilter implements Filter {
-
+public class VariableContainer {
     private String name;
     private Integer age;
 
     private static ThreadLocal<VariableContainer> threadLocal = new ThreadLocal<>();
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("==================过滤器初始化");
-    }
-
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) servletRequest;
-        System.out.println("this is MyFilter,url :"+request.getRequestURI());
-        filterChain.doFilter(servletRequest, servletResponse);
-
-    }
-
-    @Override
-    public void destroy() {
-        System.out.println("=============过滤器销毁");
-    }
 
     /**
      * 获取当前线程中绑定的变量容器   外部可以往容器中设值
