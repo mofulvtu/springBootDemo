@@ -3,7 +3,7 @@ package com.lzg.springBootDemo.domain;
 import java.util.List;
 /**
  * Desc:
- * @Author  Liuzeg
+ * @Author  Liuzg
  * @Date  2017/8/7 14:57
  */
 public class Company {
